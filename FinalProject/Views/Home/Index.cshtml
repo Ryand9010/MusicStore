@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="~/Images/Slider_Drum.jpg" alt="First slide">
+            <div class="carousel-caption">
+                <h3>All in one place</h3>
+                <p>Make your band complete with drums, guitars, basses, keyboards and more!</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="~/Images/Slider_Keyboard.jpg" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>Low Prices</h3>
+                <p>Like the quality of our products, our prices are unbeatable</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="~/Images/Slider_Guitar.jpg" alt="Third slide">
+            <div class="carousel-caption">
+                <h3>Top Brands</h3>
+                <p>From Gretsch to Fender To Gibson, we carry the best in the business</p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+</div>

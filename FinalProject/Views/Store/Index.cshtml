@@ -1,0 +1,18 @@
+﻿@model IEnumerable<FinalProject.Models.Category>
+
+@{
+    ViewBag.Title = "BrowseCategories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="browseHead">Browse Categories</h1><br /><br />
+
+<div class="cat-menu">
+<ul>
+    @foreach (var category in Model)
+    {
+        <li>@Html.ActionLink(category.Name, "Browse",new { category = category.Name }, null)</li>
+        
+    }
+</ul>
+</div>

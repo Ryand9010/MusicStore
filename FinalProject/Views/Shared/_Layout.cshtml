@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MainLayOut.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-mid-6 col-sm-6 col-xs-6">
+                <div class="logo">
+                    <div class="emerald">
+                        <h1><a href="#">Emerald<span> Instruments</span></a> <img src="~/Images/LogoStone.jpg" width="40" height="40" alt"logo" /> </h1>
+                    </div>
+                    <p>Seattle's Best Music Store</p>
+                </div>
+            </div>
+
+            <div class="col-mid-6 col-sm-6 col-xs-6">
+                <div class="account">
+                    <ul>
+                        <li>
+                            <div class="hidden-xs">
+                                <h4><a>Call</a></h4>
+                                <p>555-555-5555</p>
+                            </div>
+
+                            <div class="visible-xs">
+                                <p>555-555-5555</p>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="nav-menus">
+                    <ul class="nav nav-pills">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Shop", "Index", "Store")</li>
+                        <li>@Html.ActionLink("Cart", "Index", "ShoppingCart")</li>
+                        <li>@Html.ActionLink("Manage", "Index", "StoreManager")</li>
+                    </ul>
+                    <div class="login">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

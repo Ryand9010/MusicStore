@@ -1,0 +1,18 @@
+﻿@model FinalProject.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight:bolder">@Model.Brand.Name @Model.Name</h1><br /><br/>
+
+<div>
+    <p style="font-size: 16px;">
+        @Model.Description
+    </p><br /><br/>
+    <div class="heads" style="font-size:20px;">
+        @Html.ActionLink("Add to Cart", "OrderNow", "ShoppingCart", new { id = Model.ProductId}, null)
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿
+@model FinalProject.Models.Category
+
+
+@{
+    ViewBag.Title = "Browse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 style="font-size:24px">Browsing Category: @Model.Name</h1><br /><br />
+
+
+<table class="heads">
+    <thead>
+        <tr >
+            <th>Model Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Products)
+        {
+        <tr>
+            <td width="200">@Html.ActionLink(item.Name,"Details", new { id = item.ProductId })</td>
+            <td width="200">@item.Brand.Name</td>
+            <td width="200">$@item.Price</td>
+        </tr>
+        }
+    </tbody>
+</table>

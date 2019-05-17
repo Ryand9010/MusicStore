@@ -1,0 +1,58 @@
+﻿@using FinalProject.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight:bold;">My Cart</h1><br /><br />
+
+@{
+    if (Session["Cart"] != null)
+    {
+        <table>
+            <tr style="width:100px;">
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+            </tr>
+            @foreach (var cart in (List<Cart>)Session["Cart"])
+            {
+                <tr style="height:30px;">
+                    <td width="260" class="heads">@Html.ActionLink(@cart.Product.Brand.Name+" "+@cart.Product.Name,"Details","Store", new { id = cart.Product.ProductId }, null)</td>
+                    <td width="200">$@cart.Product.Price</td>
+                    <td width="200">@cart.Quantity</td>
+                    <td width="200">@(String.Format("{0:C2}", cart.Product.Price * cart.Quantity))</td>
+                    <td class="heads">
+                        @Html.ActionLink("Remove", "Remove", "ShoppingCart", new { id = cart.Product.ProductId }, new { onclick = "return confirm('Are you sure you want to remove this item?');" })
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="3" style="font-weight:bold;">Total:</td>
+                <td style="font-weight:bold;">
+                    @{
+                        List<Cart> temp = (List<Cart>)Session["Cart"];
+                        var total = String.Format("{0:C2}", temp.Sum(x => x.Quantity * x.Product.Price));
+                    }
+
+                    @total 
+                </td>
+            </tr>
+
+        </table>
+        <br />
+        <div class="heads">
+            @Html.ActionLink("Continue Shopping", "Index", "Store")&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Checkout", "Checkout", "ShoppingCart")
+        </div>
+                        }
+
+                        else
+                        {
+                            <h3>Cart is Empty</h3>
+                        }
+
+}
